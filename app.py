@@ -89,14 +89,15 @@ def exibir_dados():
 @app.route("/executar_comando", methods=["POST"])
 def executar_comando():
     try:
-        cnpj_filial = request.form.get('cnpj_filial')
-        cod_rodopar = request.form.get('cod_rodopar')
-        doc_rodopar = request.form.get('doc_rodopar')
-        serie = request.form.get('serie')
-        parcela = request.form.get('parcela')
+        data = request.json
+        cnpj_filial = data.get('cnpj_filial')
+        cod_rodopar = data.get('cod_rodopar')
+        doc_rodopar = data.get('doc_rodopar')
+        serie = data.get('serie')
+        parcela = data.get('parcela')
     
         print('\n')
-        print(f'cod_rodopar:{cod_rodopar}, doc_rodopar:{doc_rodopar}, serie:{serie}, parcela:{parcela}')
+        print(f'cnpj_filial:{cnpj_filial}, cod_rodopar:{cod_rodopar}, doc_rodopar:{doc_rodopar}, serie:{serie}, parcela:{parcela}')
 
         print('\n')
     
