@@ -34,7 +34,6 @@ def login():
             if cont >= len(lista):
                 flash('Usuario invalido')
                 return redirect("/")
-    
 
 
 @app.route("/exibir_dados", methods=["GET"])
