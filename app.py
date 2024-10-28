@@ -6,7 +6,7 @@ import pyodbc
 SERVER = '177.47.20.123,1433'
 DATABASE = 'db_visual_rodopar'
 USERNAME = 'cyber'
-PASSWORD = 'bycyber'
+PASSWORD = '**********'
 connectionString = f'DRIVER={{SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
 conn = pyodbc.connect(connectionString)
 #FIM
@@ -30,10 +30,19 @@ def login():
         for c in lista:
             cont+=1
             if usuario == c['nome'] and senha == c['senha']:
-                return redirect("/exibir_dados")
+                return redirect("/home")
             if cont >= len(lista):
                 flash('Usuario invalido')
                 return redirect("/")
+            
+
+@app.route("/home", methods=["GET"])
+def homepage():
+    return render_template("html/home.html")
+
+@app.route('/sobre')
+def sobre():
+    return render_template('html/sobre.html')
 
 
 @app.route("/exibir_dados", methods=["GET"])
@@ -60,7 +69,7 @@ def exibir_dados():
         FROM CargoPoloTemp.dbo.BASEDDA B
 
         LEFT OUTER JOIN db_visual_rodopar.dbo.RODCLI F ON F.CODCGC = B.FORCGC
-        LEFT OUTER JOIN db_visual_rodopar.dbo.PAGDOCI P ON P.CODCLIFOR = F.CODCLIFOR AND P.DATVEN = B.DATVEN AND P.VLRPAR = B.VLRTIT and p.situac not in ('C','I','L')
+        INNER JOIN db_visual_rodopar.dbo.PAGDOCI P ON P.CODCLIFOR = F.CODCLIFOR AND P.DATVEN = B.DATVEN AND P.VLRPAR = B.VLRTIT and p.situac not in ('C','I','L')
         """
 
         # Executar a consulta
@@ -127,4 +136,4 @@ def executar_comando():
 
 
 if __name__  == "__main__":
-    app.run(debug=True)
+    app.run(host= '10.1.1.114', port=5000 ,debug=True)

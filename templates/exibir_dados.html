@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    <h1>Dados</h1>
+    <h1>DDA Boletos x Rodopar</h1>
     <form id="formulario" method="post">
         <table border="1">
             <thead>
@@ -41,7 +41,6 @@
                         <td>{{row['LINHA DIGITAVEL']}}</td>
                         <td>{{row['LINHA DIG. RODOPAR']}}</td>
                         <td>{{row['LANCADO RODOPAR']}}</td>
-                        <td>{{row['PARCELA']}}</td>
                         <!-- Adicione mais colunas conforme necessário -->
                         <td><input type="checkbox" name="selecionar" value="{{ row['CNPJ FILIAL'] }}-{{ row['COD. RODOPAR'] }}-{{ row['DOCUMENTO RODOPAR'] }}-{{ row['SERIE'] }}-{{ row['PARCELA'] }}"></td>
                     </tr>
@@ -49,43 +48,46 @@
             {% endfor %}
             </tbody>
         </table>
-        <button type="button" onclick="executarComandoSelecionado()">Executar Comando nos Selecionados</button>
+        <button type="button" onclick="executarComandoSelecionado()">Executar</button>
     </form>
 
     <script>
-       function executarComandoSelecionado() {
-    const formulario = document.getElementById('formulario');
-    const checkboxes = formulario.querySelectorAll('input[name="selecionar"]:checked');
-    
-    checkboxes.forEach(checkbox => {
-        const valores = checkbox.value.split('-');
-        const cnpjFilial = valores[1];
-        const codRodopar = valores[2];
-        const docRodopar = valores[3];
-        const serie = valores[4];
-        const parcela = valores[5];
+    function executarComandoSelecionado() {
+        const formulario = document.getElementById('formulario');
+        const checkboxes = formulario.querySelectorAll('input[name="selecionar"]:checked');
+        
+        checkboxes.forEach(checkbox => {
+            const valores = checkbox.value.split('-');
+            const cnpjFilial = valores[1];
+            const codRodopar = valores[2];
+            const docRodopar = valores[3];
+            const serie = valores[4];
+            const parcela = valores[5];
 
-        console.log(parcela);
+            console.log(parcela);
 
-        // Enviar uma solicitação para o servidor para executar o comando em Python
-        fetch('/executar_comando', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',  // Alterado para application/json
-            },
-            body: JSON.stringify({
-                cnpj_filial: cnpjFilial,
-                cod_rodopar: codRodopar,
-                doc_rodopar: docRodopar,
-                serie: serie,
-                parcela: parcela
+            // Enviar uma solicitação para o servidor para executar o comando em Python
+            fetch('/executar_comando', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',  // Alterado para application/json
+                },
+                body: JSON.stringify({
+                    cnpj_filial: cnpjFilial,
+                    cod_rodopar: codRodopar,
+                    doc_rodopar: docRodopar,
+                    serie: serie,
+                    parcela: parcela
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => alert(data.message))  // Exibir a resposta do servidor
-        .catch(error => console.error('Erro ao executar comando:', error));
-    });
-}
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);  // Exibir a resposta do servidor
+                location.reload();    // Recarregar a página
+            })
+            .catch(error => console.error('Erro ao executar comando:', error));
+        });
+    }
     </script>
 </body>
 </html>

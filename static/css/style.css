@@ -1,0 +1,51 @@
+body {
+    background-image: url('a.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+
+}
+
+.container {
+    text-align: center;
+    padding-top: 150px;
+}
+
+.logo img {
+    width: 250px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.option {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.option img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.option span {
+    display: block;
+    font-size: 18px;
+    color: white;
+}
+
+/* Novo estilo para o ícone Sobre */
+.sobre {
+    position: absolute;
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da direita */
+}
+
+.sobre img {
+    width: 50px;
+    height: 50px;
+}

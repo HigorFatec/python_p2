@@ -1,28 +1,62 @@
 @charset "UTF-8";
 
 
+/* Adicione esta regra para o container do logo */
+div#container-logo {
+    text-align: center;
+    margin-bottom: 50px; /* Espaçamento entre o logo e o formulário */
+    margin-top: 100px;
+}
+
+/* Adicione esta regra para a imagem do logo */
+div#container-logo img {
+    width: 250px; /* Defina a largura conforme necessário */
+    height: auto; /* Mantém a proporção original */
+}
 
 body {
     background-image: url('a.jpg');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     opacity: 0.9;
 
 }
 
+
 div#container-login{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-position: center;
     width: 300px;
-    margin-top: 100px;
+    height: 300px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     padding: 20px 30px;
     text-align: center;
     border-radius: 10px;
     background-color: #fff;
-    opacity: 90%;
-    
+    opacity: 80%;
+    font-size: 14px;
+}
+
+input#nome{
+    height: 25px;
+    background-color:#095bb2b5;
+    color: white;
+}
+
+label[for="nome"]{
+    font-size: 16px;
+}
+
+label[for="senha"]{
+    font-size: 16px;
+}
+
+input#senha{
+    height: 25px;
+    background-color: #095bb2b5;
+    color: white;
 }
 
 form{
@@ -77,6 +111,7 @@ button#btn-entrar:hover{
     opacity: 50%;
     background-color:red;
     color: blue;
+    
 }
 
 

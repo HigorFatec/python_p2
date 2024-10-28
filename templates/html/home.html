@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Reservas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Grupo CargoPolo">
+        </div>
+        <div class="menu">
+            <div class="option">
+                <a href="https://cargopolo.streamlit.app/"><img src="{{ url_for('static', filename='angellira.png') }}" alt="AngelLira" ></a>
+                <span>Dashboard AngelLira</span>
+            </div>
+            <div class="option">
+                <a href="https://controle.streamlit.app/"><img src="{{ url_for('static', filename='conferencia.png') }}" alt="Dashboard"></a>
+                <span>Dashboard Conferência</span>
+            </div>
+            <div class="option">
+                <a href="/exibir_dados"><img src="{{ url_for('static', filename='boleto.png') }}" alt="DDA"></a>
+                <span>DDA x Rodopar</span>
+            </div>
+
+                    <!-- Ícone Sobre no canto superior direito -->
+        <div class="sobre">
+            <a href="/sobre"><img src="{{ url_for('static', filename='sobre.png') }}" alt="Sobre"></a>
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>

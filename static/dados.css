@@ -4,35 +4,66 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+h1 {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(0, 0, 137);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 12px;
+    width:100%;
+    box-sizing: border-box;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-th, td {
+td {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
+    text-align: center;
+    border: 1px solid #000000;
+    background-color:rgb(255, 255, 255);
 }
 
 th {
-    background-color: #f2f2f2;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(0, 0, 137);
+    position: sticky;
+    top: 0px; /* Ajuste conforme necessário para a altura do h1 */
+    z-index: 2;
+    border: 1px solid #000000;
+    color: white;
 }
 
 button {
-    background-color: #4caf50;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: fixed;
+    bottom: 20px; /* Ou qualquer valor que desejar para a distância do fundo */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(0, 0, 137);
     color: white;
-    padding: 10px 20px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10%;
     cursor: pointer;
+    font-size: 36px;
+    border: 1px solid #000000;
+
 }
 
 #formulario {
     text-align: center;
 }
 
-button {
-    margin-top: 20px;
+input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
 }
